@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Course Info API</title>
+<meta charset="utf-8" />
+<script src="js/jquery-3.1.1.js"></script>
+<script src="js/process.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link href="css/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+<body style="padding-top: 150px">
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">Course Info API - 13153439</a>
+			</div>
+		</div>
+	</nav>
+	<div class="container" style="margin-top: -40px;">
+		<!--RETRIEVE ALL-->
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						Retrieve all courses<label class="pull-right"><input
+							id="allRest" type="checkbox" value="rest"> Use REST
+							Interface</label>
+					</div>
+					<div class="panel-body">
+
+						<button id="btnRetrieveCourses" class="btn btn-success">Retrieve
+							Courses</button>
+
+						<button id="clearAllCourses" class="btn btn-danger"
+							style="margin-left: 20px;">Clear</button>
+						<br /> <br />
+						<ul class="nav nav-tabs">
+							<li id="allCourseJson" class="active"><a data-toggle="tab"
+								href="#courseResponse">Json</a></li>
+							<li><a id="allCourseXml" data-toggle="tab"
+								href="#courseResponse">XML</a></li>
+							<li><a id="allCourseText" data-toggle="tab"
+								href="#courseResponse">Text</a></li>
+						</ul>
+
+						<div class="tab-content">
+							<div id="courseResponse" class="tab-pane fade in active">
+								<div class="response">
+									<figure class="highlight">
+										<p>
+											Request: <span id="allCoursesRequest"></span>
+										</p>
+										<pre id="allOutput">
+                                        </pre>
+									</figure>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--SEARCH-->
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						Search for a course<label class="pull-right"><input
+							id="searchRest" type="checkbox" value="rest"> Use REST
+							Interface</label>
+					</div>
+					<div class="panel-body">
+						<div class="col-sm-4" style="margin-left: -15px;">
+							<input id="txtSearchTerm" type="text" class="form-control"
+								placeholder="Search..." />
+
+						</div>
+						<button id="btnSearchCourses" class="btn btn-success">Search</button>
+						<button id="clearSearchCourses" class="btn btn-danger"
+							style="margin-left: 20px;">Clear</button>
+						<br /> <br />
+						<ul class="nav nav-tabs">
+							<li class="active"><a id="btnJsonSearch" data-toggle="tab"
+								href="#searchResponse">Json</a></li>
+							<li><a id="btnXmlSearch" data-toggle="tab"
+								href="#searchResponse">XML</a></li>
+							<li><a id="btnTextSearch" data-toggle="tab"
+								href="#searchResponse">Text</a></li>
+						</ul>
+
+						<div class="tab-content">
+							<div id="searchResponse" class="tab-pane fade in active">
+								<div class="response">
+									<figure class="highlight">
+										<p>
+											Request: <span id="searchRequest"></span>
+										</p>
+										<pre id="searchOutput">
+                                        </pre>
+									</figure>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--ADD-->
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						Add a course<label class="pull-right"><input id="addRest"
+							type="checkbox" value="rest"> Use REST Interface</label>
+					</div>
+					<div class="panel-body">
+						<div class="col-sm-12">
+							<label>Name</label> <input id="name" name="name" type="text"
+								class="form-control" placeholder="" /> <label>Description</label>
+							<textarea id="description" name="description" type="text"
+								class="form-control" placeholder=""></textarea>
+
+							<label>Degree Level</label> <input id="degreeLevel"
+								name="degreeLevel" type="text" class="form-control"
+								placeholder="" /> <label>Course Year</label> <input
+								id="courseYear" name="courseYear" type="text"
+								class="form-control" placeholder="" /> <label>UCAS Code</label>
+							<input id="ucasCode" name="ucasCode" type="text"
+								class="form-control" placeholder="" /> <label>Length</label> <input
+								id="length" name="length" type="text" class="form-control"
+								placeholder="" />
+						</div>
+
+						<div class="col-sm-12">
+							<br />
+							<div class="col-sm-4">
+								<label style="margin-left: -15px"> Data Type </label> <select
+									class="form-control" style="margin-left: -15px" id="addFormat">
+									<option value="text">Text</option>
+									<option value="json">JSON</option>
+									<option value="xml">XML</option>
+								</select>
+							</div>
+							<br />
+							<button id="btnAddCourse" class="btn btn-success"
+								style="margin-top: 6px;">Add Course</button>
+							<button id="clearAddCourse" class="btn btn-danger"
+								style="margin-top: 6px; margin-left: 20px;">Clear</button>
+							<br /> <br />
+							<div id="addResponse">
+								<div class="response">
+									<figure class="highlight">
+										<p>
+											Request: <span id="addRequest"></span>
+										</p>
+										<pre id="addOutput">
+                                        </pre>
+									</figure>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--DELETE-->
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						Delete a course<label class="pull-right"><input
+							id="deleteRest" type="checkbox" value="rest"> Use REST
+							Interface</label>
+					</div>
+					<div class="panel-body">
+						<div class="row">
+
+							<div class="col-sm-2" style="margin-left: 0px;">
+								<label> Id </label> <input id="txtDeleteId" type="number"
+									class="form-control" />
+
+							</div>
+							<div class="col-sm-3">
+								<label> Data Type </label> <select class="form-control"
+									id="deleteFormat">
+									<option value="text">Text</option>
+									<option value="json">JSON</option>
+									<option value="xml">XML</option>
+								</select>
+							</div>
+							<div class="col-sm-1">
+								<button id="btnDeleteCourse" class="btn btn-success"
+									style="margin-top: 24px">Delete</button>
+							</div>
+							<div class="col-sm-1">
+								<button id="clearDeleteCourse" class="btn btn-danger pull-right"
+									style="margin-top: 24px">Clear</button>
+							</div>
+
+						</div>
+						<div id="deleteResponse">
+							<div class="response">
+								<figure class="highlight">
+									<p>
+										Request: <span id="deleteRequest"></span>
+									</p>
+									<pre id="deleteOutput">
+                                        </pre>
+								</figure>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--UPDATE-->
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						Update a course<label class="pull-right"><input
+							id="updateRest" type="checkbox" value="rest"> Use REST
+							Interface</label>
+					</div>
+					<div class="panel-body">
+						<div class="row">
+
+							<div class="col-sm-1" style="margin-left: 0px;">
+								<label> Id </label> <input id="txtUpdateId" type="number"
+									class="form-control" />
+
+							</div>
+							<div class="col-sm-3" style="margin-left: 0px;">
+
+								<label> Attribute </label> <select class="form-control"
+									id="selectAttribute">
+									<option value="name" selected>Name</option>
+									<option value="description">Description</option>
+									<option value="degreeLevel">Degree Level</option>
+									<option value="courseYear">Course Year</option>
+									<option value="ucasCode">UCAS Code</option>
+									<option value="length">Length</option>
+
+
+								</select>
+							</div>
+							<div class="col-sm-3" style="margin-left: 0px;">
+								<label> Update Value </label> <input id="txtUpdateVal"
+									type="text" class="form-control" />
+							</div>
+							<div class="col-sm-3">
+
+
+								<label> Data Type </label> <select class="form-control"
+									id="updateFormat">
+									<option value="text">Text</option>
+									<option value="json">JSON</option>
+									<option value="xml">XML</option>
+								</select>
+							</div>
+							<div class="col-sm-1">
+								<button id="btnUpdateCourse" class="btn btn-success"
+									style="margin-top: 24px">Update</button>
+							</div>
+							<div class="col-sm-1">
+								<button id="clearUpdateCourse" class="btn btn-danger pull-right"
+									style="margin-top: 24px">Clear</button>
+							</div>
+
+						</div>
+						<div id="updateResponse">
+							<div class="response">
+								<figure class="highlight">
+									<p>
+										Request: <span id="updateRequest"></span>
+									</p>
+									<pre id="updateOutput">
+                                        </pre>
+								</figure>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	version="2.5">
+
+	<display-name>com.huseyin.enterprise</display-name>
+	<servlet>
+		<servlet-name>Courses Rest</servlet-name>
+		<servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
+		<init-param>
+			<param-name>com.sun.jersey.config.property.packages</param-name>
+			<param-value>com.huseyin.enterprise</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Courses Rest</servlet-name>
+		<url-pattern>/api/rest/*</url-pattern>
+	</servlet-mapping>
+
+	<!-- Servlets -->
+	<servlet>
+		<servlet-name>Retrieve Courses</servlet-name>
+		<servlet-class>com.huseyin.enterprise.RetrieveCourses</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Retrieve Courses</servlet-name>
+		<url-pattern>/api/retrieveCourses</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Search Courses</servlet-name>
+		<servlet-class>com.huseyin.enterprise.SearchCourses</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Search Courses</servlet-name>
+		<url-pattern>/api/searchCourses</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Add Courses</servlet-name>
+		<servlet-class>com.huseyin.enterprise.AddCourses</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Add Courses</servlet-name>
+		<url-pattern>/api/addCourses</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Update Courses</servlet-name>
+		<servlet-class>com.huseyin.enterprise.UpdateCourses</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Update Courses</servlet-name>
+		<url-pattern>/api/updateCourses</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Delete Courses</servlet-name>
+		<servlet-class>com.huseyin.enterprise.DeleteCourses</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Delete Courses</servlet-name>
+		<url-pattern>/api/deleteCourses</url-pattern>
+	</servlet-mapping>
+	<!-- Default page to serve -->
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+</web-app>
